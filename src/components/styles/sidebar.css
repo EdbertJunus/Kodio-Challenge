@@ -1,0 +1,23 @@
+.sidebar {
+  border-right: 1px solid;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+}
+
+.sidebar-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid;
+  height: 10%;
+}
+
+.sidebar-content {
+  position: sticky;
+  overflow-y: scroll;
+  height: 90%;
+}
