@@ -1,3 +1,17 @@
 .lesson {
   padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 0.8rem;
+}
+
+.lesson:hover {
+  background-color: rgba(0, 206, 171, 1);
+  color: black;
+}
+
+.active-lesson {
+  background-color: rgba(0, 206, 171, 1);
+  color: white;
+  font-weight: 500;
 }

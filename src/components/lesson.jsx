@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./styles/lesson.css";
 
 class Lesson extends Component {
   render() {
     const { item } = this.props;
+
     return (
-      <div className="lesson">
+      <NavLink
+        to={item.path}
+        className="lesson"
+        exact
+        activeClassName="active-lesson"
+      >
         <p>{item.title}</p>
-        <span>{item.duration}</span>
-      </div>
+        <span>| {item.duration} min</span>
+      </NavLink>
     );
   }
 }

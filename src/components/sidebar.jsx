@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Section from "./section";
 import "./styles/sidebar.css";
-import { SidebarData } from "./sidebardata";
 
 class Sidebar extends Component {
   render() {
+    const { data: SidebarData } = this.props;
+
     return (
       <div className="sidebar">
         <div className="sidebar-title">

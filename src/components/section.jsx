@@ -21,6 +21,11 @@ const Section = (props) => {
       ? "fas fa-chevron-down"
       : "fas fa-chevron-up";
 
+  let totalDuration = 0;
+  item.lesson.map((item) => {
+    totalDuration += item.duration;
+  });
+
   return (
     <React.Fragment>
       <div
@@ -31,9 +36,11 @@ const Section = (props) => {
       >
         <div className="section-title">
           <h5>{item.sectionTitle}</h5>
-          <i class={iconClass}></i>
+          <i className={iconClass}></i>
         </div>
-        <p className="section-info">{item.lesson.length} courses | 58 min</p>
+        <p className="section-info">
+          {item.lesson.length} courses | {totalDuration} min
+        </p>
       </div>
       <div
         className={

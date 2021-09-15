@@ -14,6 +14,8 @@
   align-items: center;
   border-bottom: 1px solid;
   height: 10%;
+  background-color: rgba(0, 206, 171, 1);
+  color: white;
 }
 
 .sidebar-content {
