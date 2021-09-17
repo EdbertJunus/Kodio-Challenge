@@ -4,14 +4,19 @@ import "./styles/lesson.css";
 
 class Lesson extends Component {
   render() {
-    const { item } = this.props;
+    const { item, clickIndex, setClickIndex } = this.props;
+
+    const handleLessonClick = () => {
+      setClickIndex(!clickIndex);
+    };
 
     return (
       <NavLink
-        to={item.path}
+        to={`/course${item.path}`}
         className="lesson"
         exact
         activeClassName="active-lesson"
+        onClick={handleLessonClick}
       >
         <p>{item.title}</p>
         <span>| {item.duration} min</span>

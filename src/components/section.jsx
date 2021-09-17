@@ -5,7 +5,7 @@ import "./styles/section.css";
 const Section = (props) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeLesson, setActiveLesson] = useState(false);
-  const { item, idx } = props;
+  const { item, idx, clickIndex, setClickIndex } = props;
 
   const showActiveLesson = () => setActiveLesson(!activeLesson);
 
@@ -22,7 +22,7 @@ const Section = (props) => {
       : "fas fa-chevron-up";
 
   let totalDuration = 0;
-  item.lesson.map((item) => {
+  item.lesson.forEach((item) => {
     totalDuration += item.duration;
   });
 
@@ -52,7 +52,14 @@ const Section = (props) => {
         }
       >
         {item.lesson.map((item, index) => {
-          return <Lesson item={item} key={index} />;
+          return (
+            <Lesson
+              clickIndex={clickIndex}
+              setClickIndex={setClickIndex}
+              item={item}
+              key={index}
+            />
+          );
         })}
       </div>
     </React.Fragment>

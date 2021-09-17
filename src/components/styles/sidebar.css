@@ -3,6 +3,8 @@
   width: 20%;
   height: 100%;
   position: fixed;
+  margin-top: 3rem;
+  background-color: white;
 }
 
 .sidebar-title {
@@ -22,4 +24,16 @@
   position: sticky;
   overflow-y: scroll;
   height: 90%;
+}
+
+@media screen and (max-width: 992px) {
+  .sidebar {
+    width: 100%;
+    z-index: 10;
+    border: 0;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
 }

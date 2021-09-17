@@ -4,7 +4,7 @@ export const SidebarData = [
     lesson: [
       {
         title: "How to Get Help",
-        path: "/",
+        path: "/1001",
         icon: 1,
         duration: 5,
         exact: true,
