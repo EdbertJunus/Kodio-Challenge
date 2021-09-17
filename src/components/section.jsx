@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import Lesson from "./lesson";
 import "./styles/section.css";
 
-const Section = (props) => {
+const Section = ({ item, idx, clickIndex, setClickIndex }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeLesson, setActiveLesson] = useState(false);
-  const { item, idx, clickIndex, setClickIndex } = props;
 
   const showActiveLesson = () => setActiveLesson(!activeLesson);
 
