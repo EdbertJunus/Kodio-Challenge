@@ -1,6 +1,35 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Lesson from "./lesson";
-import "./styles/section.css";
+
+const StyledSection = styled.div`
+  padding: 1rem;
+
+  > .section-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  > .section-info {
+    font-size: 0.8rem;
+  }
+
+  & :hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledLesson = styled.div`
+  display: ${(props) =>
+    props.idx !== props.activeIndex
+      ? "none"
+      : !props.activeLesson
+      ? "none"
+      : "flex"};
+  flex-direction: column;
+`;
 
 const Section = ({ item, idx, clickIndex, setClickIndex }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -27,8 +56,7 @@ const Section = ({ item, idx, clickIndex, setClickIndex }) => {
 
   return (
     <React.Fragment>
-      <div
-        className="section"
+      <StyledSection
         onClick={() => {
           onTitleClick(idx);
         }}
@@ -40,15 +68,11 @@ const Section = ({ item, idx, clickIndex, setClickIndex }) => {
         <p className="section-info">
           {item.lesson.length} courses | {totalDuration} min
         </p>
-      </div>
-      <div
-        className={
-          idx !== activeIndex
-            ? "section-lessons"
-            : activeLesson === false
-            ? "section-lessons"
-            : "section-lessons active"
-        }
+      </StyledSection>
+      <StyledLesson
+        idx={idx}
+        activeIndex={activeIndex}
+        activeLesson={activeLesson}
       >
         {item.lesson.map((item, index) => {
           return (
@@ -60,7 +84,7 @@ const Section = ({ item, idx, clickIndex, setClickIndex }) => {
             />
           );
         })}
-      </div>
+      </StyledLesson>
     </React.Fragment>
   );
 };

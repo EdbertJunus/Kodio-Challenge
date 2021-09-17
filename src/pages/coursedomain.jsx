@@ -35,7 +35,11 @@ const CourseDomain = () => {
                 path={`/course${lessonItem.path}`}
                 exact={lessonItem.exact}
               >
-                <Course title={lessonItem.title} video={lessonItem.video} />
+                <Course
+                  clickIndex={clickIndex}
+                  title={lessonItem.title}
+                  video={lessonItem.video}
+                />
               </Route>
             ))
           )}

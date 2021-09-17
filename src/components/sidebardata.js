@@ -46,4 +46,42 @@ export const SidebarData = [
       },
     ],
   },
+  {
+    sectionTitle: "Learn More about React",
+    lesson: [
+      {
+        title: "React 3",
+        path: "/2003",
+        icon: 4,
+        duration: 5,
+        video: "https://www.youtube.com/embed/HEKwFxL16_w",
+      },
+      {
+        title: "React 4",
+        path: "/2004",
+        icon: 5,
+        duration: 6,
+        video: "https://www.youtube.com/embed/nvOZhsTOafo",
+      },
+    ],
+  },
+  {
+    sectionTitle: "Learn More about React",
+    lesson: [
+      {
+        title: "React 3",
+        path: "/2005",
+        icon: 4,
+        duration: 5,
+        video: "https://www.youtube.com/embed/HEKwFxL16_w",
+      },
+      {
+        title: "React 4",
+        path: "/2006",
+        icon: 5,
+        duration: 6,
+        video: "https://www.youtube.com/embed/nvOZhsTOafo",
+      },
+    ],
+  },
 ];
