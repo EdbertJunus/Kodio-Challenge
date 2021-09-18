@@ -4,6 +4,7 @@ import Lesson from "./lesson";
 
 const StyledSection = styled.div`
   padding: 1rem;
+  background-color: rgba(0, 206, 171, 0.25);
 
   > .section-title {
     display: flex;
