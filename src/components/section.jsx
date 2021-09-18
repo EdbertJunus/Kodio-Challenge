@@ -56,7 +56,7 @@ const Section = ({ item, idx, clickIndex, setClickIndex }) => {
   });
 
   return (
-    <React.Fragment>
+    <>
       <StyledSection
         onClick={() => {
           onTitleClick(idx);
@@ -86,7 +86,7 @@ const Section = ({ item, idx, clickIndex, setClickIndex }) => {
           );
         })}
       </StyledLesson>
-    </React.Fragment>
+    </>
   );
 };
 
