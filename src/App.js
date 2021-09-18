@@ -1,10 +1,10 @@
 import "./App.css";
-import Sidebar from "./components/sidebar";
+import CourseDomain from "./pages/coursedomain";
 
 function App() {
   return (
     <div className="App">
-      <Sidebar />
+      <CourseDomain />
     </div>
   );
 }

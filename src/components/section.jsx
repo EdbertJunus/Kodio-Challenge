@@ -1,11 +1,39 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Lesson from "./lesson";
-import "./styles/section.css";
 
-const Section = (props) => {
+const StyledSection = styled.div`
+  padding: 1rem;
+
+  > .section-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  > .section-info {
+    font-size: 0.8rem;
+  }
+
+  & :hover {
+    cursor: pointer;
+  }
+`;
+
+const StyledLesson = styled.div`
+  display: ${(props) =>
+    props.idx !== props.activeIndex
+      ? "none"
+      : !props.activeLesson
+      ? "none"
+      : "flex"};
+  flex-direction: column;
+`;
+
+const Section = ({ item, idx, clickIndex, setClickIndex }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeLesson, setActiveLesson] = useState(false);
-  const { item, idx } = props;
 
   const showActiveLesson = () => setActiveLesson(!activeLesson);
 
@@ -21,33 +49,42 @@ const Section = (props) => {
       ? "fas fa-chevron-down"
       : "fas fa-chevron-up";
 
+  let totalDuration = 0;
+  item.lesson.forEach((item) => {
+    totalDuration += item.duration;
+  });
+
   return (
     <React.Fragment>
-      <div
-        className="section"
+      <StyledSection
         onClick={() => {
           onTitleClick(idx);
         }}
       >
         <div className="section-title">
           <h5>{item.sectionTitle}</h5>
-          <i class={iconClass}></i>
+          <i className={iconClass}></i>
         </div>
-        <p className="section-info">{item.lesson.length} courses | 58 min</p>
-      </div>
-      <div
-        className={
-          idx !== activeIndex
-            ? "section-lessons"
-            : activeLesson === false
-            ? "section-lessons"
-            : "section-lessons active"
-        }
+        <p className="section-info">
+          {item.lesson.length} courses | {totalDuration} min
+        </p>
+      </StyledSection>
+      <StyledLesson
+        idx={idx}
+        activeIndex={activeIndex}
+        activeLesson={activeLesson}
       >
         {item.lesson.map((item, index) => {
-          return <Lesson item={item} key={index} />;
+          return (
+            <Lesson
+              clickIndex={clickIndex}
+              setClickIndex={setClickIndex}
+              item={item}
+              key={index}
+            />
+          );
         })}
-      </div>
+      </StyledLesson>
     </React.Fragment>
   );
 };
